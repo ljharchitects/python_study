@@ -9,23 +9,23 @@ def outer_func(origin_func):
     return origin_func
 
 
-# def elapsed_time(origin_func):
-#     """docstring : 함수에 대한 설명 또는 사용법을 적는다
-#     연산 시간을 계산하는 함수
-#     """
+def elapsed_time(origin_func):
+    """docstring : 함수에 대한 설명 또는 사용법을 적는다
+    연산 시간을 계산하는 함수
+    """
 
-#     def wrapper_func(*args, **kwargs):
-#         start_time = time.time()
-#         result = origin_func(*args, **kwargs)
-#         end_time = time.time()
-#         print(
-#             "WorkingTime[{}]: {} sec".format(
-#                 origin_func.__name__, end_time - start_time
-#             )
-#         )
-#         return result
+    def wrapper_func(*args, **kwargs):
+        start_time = time.time()
+        result = origin_func(*args, **kwargs)
+        end_time = time.time()
+        print(
+            "WorkingTime[{}]: {} sec".format(
+                origin_func.__name__, end_time - start_time
+            )
+        )
+        return result
 
-#     return wrapper_func
+    return wrapper_func
 
 
 def add_num_for_count1(num, count):
@@ -62,6 +62,47 @@ def add_num_for_count2(num: int, count: int):
 
 
 # print(result)
+
+##################################################################
+"""
+list comprehension vs generator
+"""
+
+# @elapsed_time
+# def for_com_func(count):
+#     return [i for i in range(count)]
+
+
+# @elapsed_time
+# def for_gen_func(count):
+#     return (i for i in range(count))
+
+
+# COUNT = 100_000_000
+
+# for_com_func(COUNT)
+# for_gen_func(COUNT)
+
+
+"""
+제너레이터는 호출될때만 1회 사용된다
+"""
+base_list1 = []
+result1 = [base_list1.append(i) for i in range(10)]
+print("base_list1", base_list1)
+
+base_list2 = []
+result2 = (base_list2.append(i) for i in range(10))
+print("base_list2 before", base_list2)
+print("result2 before", result2)
+# for _ in result2:
+# print("in generator before")
+# pass
+
+print("base_list2 after", base_list2)
+print("result2 after", result2)
+# for _ in result2:
+#     print("in generator after")
 
 
 ##################################################################
