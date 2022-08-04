@@ -73,15 +73,12 @@ def func1(condition1, condition2, condition3):
     result = []
 
     if condition1:
-        print("condition1", condition1)
         result.append(condition1)
 
         if condition2:
-            print("condition2", condition2)
             result.append(condition2)
 
             if condition3:
-                print("condition3", condition3)
                 result.append(condition3)
                 return result
     return result
