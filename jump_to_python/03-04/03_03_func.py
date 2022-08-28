@@ -68,14 +68,15 @@ def add_num_for_count2(num: int, count: int):
 list comprehension vs generator
 """
 
-# @elapsed_time
-# def for_com_func(count):
-#     return [i for i in range(count)]
+
+@elapsed_time
+def for_com_func(count):
+    return [i for i in range(count)]
 
 
-# @elapsed_time
-# def for_gen_func(count):
-#     return (i for i in range(count))
+@elapsed_time
+def for_gen_func(count):
+    return (i for i in range(count))
 
 
 # COUNT = 100_000_000
@@ -87,20 +88,20 @@ list comprehension vs generator
 """
 제너레이터는 호출될때만 1회 사용된다
 """
-base_list1 = []
-result1 = [base_list1.append(i) for i in range(10)]
-print("base_list1", base_list1)
+# base_list1 = []
+# result1 = [base_list1.append(i) for i in range(10)]
+# print("base_list1", base_list1)
 
-base_list2 = []
-result2 = (base_list2.append(i) for i in range(10))
-print("base_list2 before", base_list2)
-print("result2 before", result2)
-# for _ in result2:
-# print("in generator before")
-# pass
+# base_list2 = []
+# result2 = (base_list2.append(i) for i in range(10))
+# print("base_list2 before", base_list2)
+# print("result2 before", result2)
+# # for _ in result2:
+# # print("in generator before")
+# # pass
 
-print("base_list2 after", base_list2)
-print("result2 after", result2)
+# print("base_list2 after", base_list2)
+# print("result2 after", result2)
 # for _ in result2:
 #     print("in generator after")
 
@@ -108,15 +109,15 @@ print("result2 after", result2)
 ##################################################################
 from datetime import datetime
 
-# print("datetime : ", datetime.now())
+print("datetime : ", datetime.now())
 
 
-# def logger(logging_message, dt=datetime.now()):
-#     print(f"{dt} : {logging_message}")
+def logger(logging_message, dt=datetime.now()):
+    print(f"{dt} : {logging_message}")
 
 
-# logger("test message1")
-# time.sleep(1)
-# logger("test message2")
-# time.sleep(1)
-# logger("test message3")
+logger("test message1")
+time.sleep(1)
+logger("test message2")
+time.sleep(1)
+logger("test message3")

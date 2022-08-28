@@ -23,7 +23,7 @@ def for_com_func(count):
     return [i for i in range(count)]
 
 
-COUNT = 10_000_000
+COUNT = 20_000_000
 
 while_start = time.time()
 while_result = while_func(COUNT)
