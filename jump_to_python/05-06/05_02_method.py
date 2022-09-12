@@ -24,17 +24,22 @@ class Student:
 
 student = Student("학생이름")
 
-student.study_method()
+# student.study_method()  # O
 # Student.study_method()  # 예외 발생
 
 # student.study_func()  # 예외 발생
-Student.study_func()
+# Student.study_func()
 
-student.study_static()
-Student.study_static()
+# def study_func():
+#     pass
 
-student.study_classmethod()
-Student.study_classmethod()
+# study_func()
+
+# student.study_static()
+# Student.study_static()
+
+# student.study_classmethod()
+# Student.study_classmethod()
 
 
 # 상속에서 차이 발생
@@ -53,6 +58,10 @@ class Person:
     @staticmethod
     def static_person():
         return Person()
+
+
+# def person():
+#     return "아빠"
 
 
 class WhatPerson(Person):

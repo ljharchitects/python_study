@@ -51,12 +51,29 @@ class Student:
         # type: (str) -> None
         self.name = name
 
+        self.__id = 0
         self._id = Student.id
         Student.id += 1
 
         self._grade = 0
         self._address = None  # type: str
         self._phone_number = None  # type: str
+
+    @property
+    def grade(self):
+        # type: () -> int
+        if not self._grade:
+            raise Exception("학년이 정의되지 않았습니다")
+        return self._grade
+
+    @grade.setter
+    def grade(self, grade):
+        # type: (int) -> None
+        if not isinstance(grade, int):
+            raise Exception("학년은 정수만 입력 가능합니다")
+        if grade <= 0 or grade > 3:
+            raise Exception("학년은 1, 2, 3 만 입력할 수 있습니다")
+        self._grade = grade
 
     def set_grade(self, grade):
         # type: (int) -> None
@@ -101,14 +118,18 @@ for name in ("강정훈", "강지수", "김재욱", "심명훈", "이진환"):
     grade = 2
     if name == "김재욱":
         grade = 1
-    student.set_grade(grade)
+    # student.set_grade(grade)
+    student.grade = grade
     students.append(student)
+    assert student.grade < 4
 
 for student in students:
+    # print(student._id)  # X
+    print(dir(student))
     print(
         f"\
         번호 : {student.get_id()}\
         이름 : {student.name}\
-        학년 : {student.get_grade()}\
+        학년 : {student.grade}\
         "
     )

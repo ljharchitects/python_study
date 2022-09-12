@@ -8,13 +8,19 @@ class Student:
         return self.score
 
 
+# temp_list = [1, 2, 3, 4]
+# print(f"temp_list {len(temp_list)}")
+
 student_1 = Student("학생1", 85)
 student_2 = Student("학생2", 90)
 student_3 = Student("학생3", 80)
 
-print(f"len(student_1) : {len(student_1)}")
-print(f"len(student_2) : {len(student_2)}")
+# print(f"student_1 {len(student_1)}")
 
+# print(f"len(student_1) : {len(student_1)}")
+# print(f"len(student_2) : {len(student_2)}")
+
+# sorted_result = sorted((student_1, student_2, student_3), key=lambda s: s.score)
 sorted_result = sorted((student_1, student_2, student_3), key=len)
 for sorted_student in sorted_result:
     print(
