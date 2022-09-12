@@ -16,9 +16,9 @@ class Mail:
     def __enter__(self):
         print("__enter__")
         self._smtp = self._login()
-        return self._smtp
+        return self
 
-    def __exit__(self):
+    def __exit__(self, type, value, trace_back):
         print("__exit__")
         self._smtp.quit()
 
@@ -32,7 +32,7 @@ class Mail:
         content = MIMEText(content, "html")
         msg.attach(content)
 
-        if not attachment_path:
+        if attachment_path:
             base = MIMEBase("application", "octet-stream")
             with open(attachment_path, "rb") as file:
                 base.set_payload(file.read())
